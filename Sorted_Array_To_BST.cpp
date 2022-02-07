@@ -31,7 +31,7 @@ public:
 
 
 	  root->left = Bst (nums, start, mid - 1);
-	  root->right = Bst (nums, mid + 1, end);
+	  root->right =Bst (nums, mid + 1, end);
       }
   }
   vector < int >preorder (Node * root, vector < int >&r, int &i)
