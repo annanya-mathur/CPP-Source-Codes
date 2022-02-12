@@ -41,10 +41,7 @@ bool search (trie * root, string s)
 	return false;
       curr = curr->child[index];
     }
-  if (curr->isEnd == true)
-    return true;
-  else
-    return false;
+ return isEnd;
 }
 
 int main ()
