@@ -16,18 +16,19 @@ void constructTree (Node * root, int tree[], int n)
   q.push (root);
   Node *curr;
   int i = 1;
-  int level = 1, max = 0;
-  while (q.empty () == false && i < n && curr != NULL)
+
+  while (q.empty () == false)
     {
       curr = q.front ();
-      curr->left = new Node (tree[i++]);
-      max++;
+      if (i < n)
+	curr->left = new Node (tree[i++]);
+
 
       if (i < n)
-	{
-	  curr->right = new Node (tree[i++]);
-	  max++;
-	}
+
+	curr->right = new Node (tree[i++]);
+
+
 
       if (curr->left != NULL)
 	q.push (curr->left);
@@ -45,7 +46,7 @@ void preorder (Node * root)
 {
   if (root != NULL)
     {
-      cout << root->data<<"\t";
+      cout << root->data << "\t";
       preorder (root->left);
       preorder (root->right);
     }
