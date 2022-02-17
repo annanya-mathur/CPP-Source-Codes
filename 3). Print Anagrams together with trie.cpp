@@ -28,7 +28,7 @@ void insert(string s , int index)
     curr->s+=to_string(index);
    
 }
-void search(string s, string st[])
+void p_anagram(string s, string st[])
 {
     trie *curr=root;
     for(int i=0;i<s.size();i++)
@@ -58,7 +58,7 @@ set<string>a;
     }
     for(auto &i:a)
     {   
-        search(i,st);
+        p_anagram(i,st);
     }
 
     return 0;
