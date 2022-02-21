@@ -22,7 +22,7 @@ int main ()
   vector < int >heap (n, 0);
   for (int i = 0; i < n; i++)
     cin >> heap[i];
-  int index = (n - 1) / 2;
+  int index = (n/2)-1;
   for (int i = index; i >= 0; i--)
     heapify (heap, i, n);
 for (auto & i:heap)
