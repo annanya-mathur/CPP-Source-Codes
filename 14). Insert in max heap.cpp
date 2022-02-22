@@ -6,9 +6,9 @@ vector < int >heap;
 void heapify (int i, int n)
 {
   int l = 2 * i + 1, r = 2 * i + 2, large = i;
-  if (l < n && heap[l] > heap[i])
+  if (l < n && heap[l] > heap[large])
     large = l;
-  if (r < n && heap[r] > heap[i])
+  if (r < n && heap[r] > heap[large])
     large = r;
   if (large != i)
     {
