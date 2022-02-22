@@ -4,9 +4,9 @@ using namespace std;
 void heapify (vector <int>&heap, int i, int n)
 {
   int l = 2 * i + 1, r = 2 * i + 2, large = i;
-  if (l < n && heap[i] < heap[l])
+  if (l < n && heap[large] < heap[l])
     large = l;
-  if (r < n && heap[i] < heap[r])
+  if (r < n && heap[large] < heap[r])
     large = r;
   if (large != i)
     {
