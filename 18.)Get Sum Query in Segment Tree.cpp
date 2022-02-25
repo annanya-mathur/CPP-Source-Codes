@@ -32,7 +32,7 @@ int main ()
 {
   int n, l, r;
   cin >> n;
-  int x = (int) (ceil (log2 (n)));
+  int x = (int)(ceil (log2 (n)));
   int size = (2 * (int) pow (2, x)) - 1;
 
   for (int i = 0; i < n; i++)
