@@ -25,7 +25,7 @@ int search_max (int start, int end, int l, int r, int index)
 {
   if (r < start || l > end)
     return INT_MIN;
-  if (l >= start && r <= end)
+  if (l <= start && r >= end)
     return tree[index];
   int mid = (start + end) / 2;
   return max (search_max (start, mid, l, r, 2 * index + 1),
