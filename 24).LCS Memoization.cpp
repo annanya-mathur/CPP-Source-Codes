@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -47,6 +48,7 @@ int main ()
 
   cout << "LONGEST COMMOM SUBSEQUENCE\t";
   int x = memo_lcs (s1, s2, s1.size (), s2.size ());
+  reverse(sub.begin(),sub.end());	
   cout << sub << "\n" << "WITH LENGTH" << "\t" << x << endl;
 
   return 0;
