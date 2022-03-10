@@ -4,7 +4,7 @@ using namespace std;
 
 void longestIncSub(int arr[],int n)
 {
-    int lis[n],len=1;
+    int lis[n];
     lis[0]=1;
     for(int i=1;i<n;i++)
     {lis[i]=1;
@@ -12,7 +12,7 @@ void longestIncSub(int arr[],int n)
        {
            if(arr[i]>arr[j])
            {lis[i]=max(lis[i],lis[j]+1);
-           len++;}
+           }
        }
     }
     cout<<"LENGTH OF LONGEST INCREASING SUBSEQUENCE"<<"\t";
