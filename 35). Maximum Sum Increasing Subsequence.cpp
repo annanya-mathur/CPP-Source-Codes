@@ -19,6 +19,7 @@ int MaxIncSumSeq (int arr[], int n)
 	}
     }
   int res = dp[0];
+  cout<<"DP"<<"\t"<<dp[0]<<"\t";
   for (int i = 1; i < n; i++)
     {
       cout << dp[i] << "\t";
@@ -34,10 +35,13 @@ int main ()
   int n;
   cin >> n;
   int arr[n];
+  cout<<"INPUT"<<"\t";
   for (int i = 0; i < n; i++)
     {
       cin >> arr[i];
+      cout<<arr[i]<<"\t";
     }
+    cout<<endl;
   dp.push_back (arr[0]);
   int x = MaxIncSumSeq (arr, n);
   cout << "MAXIMUM INCREASING SUM SUBSEQUENCE" << "\t" << x;
