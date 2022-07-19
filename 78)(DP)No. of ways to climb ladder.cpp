@@ -22,5 +22,4 @@ int main()
    wayesLadder(n);
    cout<<memo[n]<<endl;
 
-    return 0;
-}
+    return 0;}
