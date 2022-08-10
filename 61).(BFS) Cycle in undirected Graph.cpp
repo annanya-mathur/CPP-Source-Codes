@@ -1,61 +1,50 @@
-#include <iostream>
-#include <queue>
-#include <vector>
+#include <bits/stdc++.h>
+
 using namespace std;
-
-bool bfscycle (vector < int >adj[], vector < int >visited, int v, int i)
+ bool cycleBfs(vector <int> adj[],int i, vector<int>&visited){
+        queue<pair<int,int>>q;
+        q.push({i,-1});
+        visited[i]=1;
+        while(!q.empty())
+        {
+            int s=q.size();
+            while(s--){
+                auto x=q.front();
+                q.pop();
+                for(auto j:adj[x.first]){
+                if(!visited[j])
+                { visited[j]=1;
+                    q.push({j,x.first});
+                }
+                else if(x.second!=j)
+                return true;
+                
+                }
+            }
+        }
+        return false;
+    }
+int main()
 {
-  vector < int >parent (v, -1);
-
-  queue < int >q;
-  visited[i] = 1;
-  q.push (i);
-  while (!q.empty ())
+    int v,e,f=0;
+    cin>>v>>e;
+    vector<int>adj[e];
+    for(int i=0;i<v;i++)
     {
-      int x = q.front ();
-      q.pop ();
-
-    for (auto j:adj[x])
-	{
-	  if (!visited[j])
-	    {
-	      visited[j] = 1;
-	      parent[j] = x;
-	      q.push (j);
-	    }
-	  else if (parent[x] != j)
-	    return true;
-	}
-
+        int x,y;
+        cin>>x>>y;
+        adj[x].push_back(y);
+        adj[y].push_back(x);
     }
-  return false;
-}
-
-int main ()
-{
-  int v, e;
-  cin >> v >> e;
-  vector < int >adj[v];
-  vector < int >visited (v, 0);
-  int flag = 0;
-  for (int i = 0; i < e; i++)
-    {
-      int x, y;
-      cin >> x >> y;
-      adj[x].push_back (y);
-      adj[y].push_back (x);
-    }
-  for (int i = 0; i < v; i++)
-    {
-      if (!visited[i])
-	{
-	  if (bfscycle (adj, visited, v, i))
-	    flag = 1;
-	}
-    }
-  if (flag)
-    cout << "Cycle is present" << endl;
-  else
-    cout << "Cycle is not present" << endl;
-  return 0;
+   vector<int>visited(v,0);
+   for(int i=0;i<v;i++)
+   {
+       if(!visited[i])
+       {
+           if(cycleBfs(adj,i,visited)) {f=1 ;break; }
+       }
+   }
+   if(f) cout<<"YES"<<endl;
+   else cout<<"NO"<<endl;
+    return 0;
 }
